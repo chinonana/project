@@ -7,9 +7,13 @@ use App\Post;
 
 class PostController extends Controller
 {
-    //
-    public function index(Post $post)
-    {
-    return $post->get();
-    }
+    public function show(Request $request, $id)
+{
+    $post = Post::findOrFail($id);
+ 
+    return view('posts.show', [
+        'post' => $post,
+    ]);
+
+}
 }

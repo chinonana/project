@@ -58,3 +58,11 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+
+
+include '../app/config/database.php';
+include '../public/view/header.php';
+include '../app/functions/product.php'; 
+
+fetch_products($mysqli);

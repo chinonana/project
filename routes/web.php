@@ -11,9 +11,7 @@
 |
 */
 
+
+Route::get('bbs', 'PostsController@index');
+Route::get('/posts', 'PostController@show');
 Route::get('/users', 'UserController@index');
-Route::get('/categories', 'CategoryController@index');
-Route::get('/perfumes', 'PerfumeController@index');
-Route::get('/posts', 'PostController@index');
-Route::get('/comments', 'CommentController@index');
-Route::get('/likes', 'LikeController@index');
