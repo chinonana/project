@@ -12,7 +12,7 @@ class PostTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('posts')->insrt([
+        DB::table('posts')->insert([
             [
             'discription'=>'お値段以上',
             'perfume_id'=>'1'

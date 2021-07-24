@@ -12,7 +12,7 @@ class PerfumeTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('categories')->insrt([
+        DB::table('perfumes')->insert([
             [
             'name'=>'dior',
             'category_id'=>'1',

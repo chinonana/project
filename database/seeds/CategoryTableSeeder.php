@@ -12,7 +12,7 @@ class CategoryTableSeeder extends Seeder
     
     public function run()
     {
-        DB::table('categories')->insrt([
+        DB::table('categories')->insert([
             [
             'category'=>'花',
             ],

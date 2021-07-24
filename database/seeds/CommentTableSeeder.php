@@ -12,7 +12,7 @@ class CommentTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('categories')->insrt([
+        DB::table('comments')->insert([
             [
             'response'=>'good',
             'post_id'=>'1',
