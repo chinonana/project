@@ -26,6 +26,7 @@
 					<li><a href="#">植物</a></li>
 					<li><a href="#">動物</a></li>
 					<li><a href="#">人工</a></li>
+					<li><a href="like.blade.php">お気に入り</a></li>
 					<li><a href="login.php">ログイン</a></li>
 					<li><a href="signup.php">会員登録</a></li>
 				</ul>

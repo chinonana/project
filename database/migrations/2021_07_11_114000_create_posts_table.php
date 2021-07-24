@@ -15,7 +15,9 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id')->unique();
+            //body
             $table->text('discription');
+            //title
             $table->unsignedInteger('perfume_id');
             $table->foreign('perfume_id')->references('id')->on('perfumes');
             $table->timestamps();

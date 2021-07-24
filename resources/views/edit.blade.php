@@ -34,24 +34,22 @@
 	</nav>
 </div> <!-- /container -->
 <body>
-	<div class="container">
-        <div class="row">
-		<div class="col-xs-12">
-        <h1 class="title">
-            {{ $post->title }}
-        </h1>
-        <div class="content">
-            <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $post->body }}</p>    
+	<h1 class="title">編集画面</h1>
+    <div class="content">
+        <form action="/posts/{{ $post->id }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class='content__title'>
+                <h2>タイトル</h2>
+                <input type='text' name='post[title]' value="{{ $post->title }}">
             </div>
-        </div>
-        <div class="footer">
-            <a href="/">戻る</a>
-	    </div>
-	    </div>
-	    </div>
-	</div>
+            <div class='content__body'>
+                <h2>本文</h2>
+                <input type='text' name='post[body]' value="{{ $post->body }}">
+            </div>
+            <input type="submit" value="保存">
+        </form>
+    </div>
 //<div class="container">
 	//<div class="row">
 		// <div class="col-xs-12">

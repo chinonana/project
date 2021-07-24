@@ -10,6 +10,6 @@ class UserController extends Controller
     //
     public function index(User $user)
     {
-    return $user->get();
+         return view('signin')->with(['users' => $user->get()]);  
     }
 }

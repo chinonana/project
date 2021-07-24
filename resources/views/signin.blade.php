@@ -32,9 +32,9 @@
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
-</div> <!-- /container -->
-<div class="container">
-	<div class="row">
+</div> <!-- /users -->
+<div class="users">
+	<div class="user">
 		 <div class="col-xs-6 col-xs-offset-3">
 		 	<h2>会員登録</h2>
 			<form action="" method="post">
@@ -49,10 +49,6 @@
 				<div class="form-group">
 					<label for="user_password">パスワード</label>
 					<input type="password" class="form-control" id="user_password" name="user_password">
-				</div>
-				<div class="form-group">
-					<label for="user_pass_check">パスワードの確認</label>
-					<input type="password" class="form-control" id="user_pass_check" name="user_pass_check">
 				</div>
 				<button type="submit" class="btn btn-default">登録する</button>
 			</form>

@@ -26,28 +26,30 @@
 					<li><a href="#">植物</a></li>
 					<li><a href="#">動物</a></a></li>
 					<li><a href="#">人工</a></li>
-					<li><a href="login.php">ログイン</a></li>
-					<li><a href="signup.php">会員登録</a></li>
+					<li><a href="like.blade.php">お気に入り</a></li>
+					<li><a href="login.blade.php">ログイン</a></li>
+					<li><a href="signup.blede.php">会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
-</div> <!-- /container -->
-<div class="posts">
-	@foreach ($posts as $post)
-	<div class="post">
-		<div class="col-xs-12">
-			<h2 =class='title'>{{ $post->title }}</h2>
-			<p class='body'>{{ $post->body }}</p>
-			<a href="detail.php">&raquo; 口コミを見る</a>
-			<br><br>
-		</div>
-	 @endforeach
-	</div>
-</div>
+</div> <!-- /project posts -->
+<form action="/posts" method="POST">
+            @csrf
+            <div class="title">
+                <h2>Title</h2>
+                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+            </div>
+            <div class="body">
+                <h2>Body</h2>
+                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+            </div>
+            <input type="submit" value="保存"/>
+        </form>
+        <div class="back">[<a href="/">back</a>]</div>
 <br><br><br>
 
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </html>

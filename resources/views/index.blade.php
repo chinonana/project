@@ -24,48 +24,32 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">花</a></li>
 					<li><a href="#">植物</a></li>
-					<li><a href="#">動物</a></li>
-					<li><a href="#">人口</a></li>
-					<li><a href="login.php">ログイン</a></li>
-					<li><a href="signup.php">会員登録</a></li>
+					<li><a href="#">動物</a></a></li>
+					<li><a href="#">人工</a></li>
+					<li><a href="like.blade.php">お気に入り</a></li>
+					<li><a href="login.blade.php">ログイン</a></li>
+					<li><a href="signup.blede.php">会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
-</div> <!-- /container -->
-<body>
-	<div class="container">
-        <div class="row">
+</div> <!-- /project posts -->
+<p class='create'></p>[<a href='/posts/create'>投稿</a>]</p>
+<div class="posts">
 		<div class="col-xs-12">
-        <h1 class="title">
-            {{ $post->title }}
-        </h1>
-        <div class="content">
-            <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $post->body }}</p>    
-            </div>
+			@foreach ($posts as $post)
+                <div class='post'>
+                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->perfume_id }}</h2></a>
+                    <p class='body'>{{ $post->discription }}</p>
+                </div>
+            @endforeach
         </div>
-        <div class="footer">
-            <a href="/">戻る</a>
-	    </div>
-	    </div>
-	    </div>
+        <div class='paginate'>
+            {{ $posts->links() }}
+		</div>
 	</div>
-//<div class="container">
-	//<div class="row">
-		// <div class="col-xs-12">
-		 	//<h3>口コミを投稿する</h3>
-			//<form action="" method="post">
-				//<textarea name="add_review" class="form-control" placeholder="口コミを記入してください。"></textarea>
-				//<button type="submit" class="btn btn-default">投稿する</button>
-			//</form>
-		// </div>
-	//</div>
-//</div
+</div>
 <br><br><br>
 
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </html>

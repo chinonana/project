@@ -12,6 +12,16 @@
 */
 
 
-Route::get('bbs', 'PostsController@index');
-Route::get('/posts', 'PostController@show');
-Route::get('/users', 'UserController@index');
+//posts/index.blade
+Route::get('/', 'PostController@index');
+//create 表示
+Route::get('/posts/create', 'PostController@create');
+//個別投稿の編集画面
+Route::get('/posts/{post}/edit', 'PostController@update');
+//posts->index/coments->details.blsde
+Route::get('/posts/{post}', 'PostController@show');
+
+
+
+//index->postting
+Route::post('/posts', 'PostController@store');
