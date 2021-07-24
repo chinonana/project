@@ -14,13 +14,19 @@ class UserTableSeeder extends Seeder
         //
          DB::table('users')->insrt([
             [
-            'name'=>'aka'
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@gmail.com',
+            'password' => bcrypt('secret'),
             ],
             [
-            'name'=>'ki'
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@gmail.com',
+            'password' => bcrypt('secret'),
             ],
             [
-            'name'=>'murasaki'
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@gmail.com',
+            'password' => bcrypt('secret'),
             ],
         ]);   
     }

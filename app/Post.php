@@ -16,10 +16,6 @@ class Post extends Model
     
     
     
-    
-    
-    
-    
     //ページネーション
     public function getPaginateByLimit(int $limit_count = 10)
     {
