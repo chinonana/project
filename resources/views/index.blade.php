@@ -22,7 +22,7 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">花</a></li>
+					<li><a href="#category.blade">花</a></li>
 					<li><a href="#">植物</a></li>
 					<li><a href="#">動物</a></a></li>
 					<li><a href="#">人工</a></li>

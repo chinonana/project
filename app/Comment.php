@@ -19,5 +19,6 @@ class Comment extends Model
     // 更新可能な項目の設定
     protected $fillable = [
         'response',
+        'post_id',
     ];
 }

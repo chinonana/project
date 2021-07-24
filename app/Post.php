@@ -11,6 +11,7 @@ class Post extends Model
     // 更新可能な項目の設定
     protected $fillable = [
     'discription',
+    'perfume_id'
     ];
     
     
