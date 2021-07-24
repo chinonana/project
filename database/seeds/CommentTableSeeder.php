@@ -12,6 +12,19 @@ class CommentTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(\App\Comment::class, 50)->create();   
+        DB::table('categories')->insrt([
+            [
+            'response'=>'good',
+            'post_id'=>'1',
+            ],
+            [
+            'response'=>'bad',
+            'post_id'=>'2',
+            ],
+            [
+            'response'=>'great',
+            'post_id'=>'3',
+            ],
+        ]);  
     }
 }

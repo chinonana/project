@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PerfumeTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,18 +12,15 @@ class PerfumeTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('categories')->insrt([
+         DB::table('users')->insrt([
             [
-            'name'=>'dior',
-            'category_id'=>'1',
+            'name'=>'aka'
             ],
             [
-            'name'=>'CC',
-            'category_id'=>'2',
+            'name'=>'ki'
             ],
             [
-            'name'=>'KK',
-            'category_id'=>'3',
+            'name'=>'murasaki'
             ],
         ]);   
     }

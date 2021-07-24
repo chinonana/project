@@ -12,12 +12,23 @@ class PostTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\Post::class, 50)
-            ->create()
-            ->each(function ($post) {
-                $comments = factory(App\Comment::class, 2)->make();
-                $post->comments()->saveMany($comments);
-            }
-        );
+        DB::table('posts')->insrt([
+            [
+            'discription'=>'お値段以上',
+            'perfume_id'=>'1'
+            ],
+            [
+            'discription'=>'お値段以上2',
+            'perfume_id'=>'2'
+            ],
+            [
+            'discription'=>'お値段以上3',
+            'perfume_id'=>'3'
+            ],
+        ]);  
+        
+        
+        
+    
     }
 }

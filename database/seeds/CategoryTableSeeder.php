@@ -12,6 +12,16 @@ class CategoryTableSeeder extends Seeder
     
     public function run()
     {
-        factory(App\Category::class, 50)->create();
+        DB::table('categories')->insrt([
+            [
+            'category'=>'花',
+            ],
+            [
+            'category'=>'動物',
+            ],
+            [
+            'category'=>'人工',
+            ],
+        ]);  
     }
 }
