@@ -2,16 +2,16 @@
 
 use Illuminate\Database\Seeder;
 
-class CommentTableSeeder extends Seeder
+class CategoryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
+    
     public function run()
     {
-        //
-        factory(\App\Comment::class, 50)->create();   
+        factory(App\Category::class, 50)->create();
     }
 }

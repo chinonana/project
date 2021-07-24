@@ -39,7 +39,7 @@
 		<div class="col-xs-12">
 			@foreach ($posts as $post)
                 <div class='post'>
-                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->perfume_id }}</h2></a>
+                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->perfume_id->name }}</h2></a>
                     <p class='body'>{{ $post->discription }}</p>
                 </div>
             @endforeach
