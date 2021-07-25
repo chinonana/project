@@ -15,15 +15,18 @@ class PostTableSeeder extends Seeder
         DB::table('posts')->insert([
             [
             'discription'=>'お値段以上',
-            'perfume_id'=>'1'
+            'perfume'=>'dior',
+            'category_id'=>'1',
             ],
             [
             'discription'=>'お値段以上2',
-            'perfume_id'=>'2'
+            'perfume'=>'CC',
+            'category_id'=>'2',
             ],
             [
             'discription'=>'お値段以上3',
-            'perfume_id'=>'3'
+            'perfume'=>'KK',
+            'category_id'=>'3',
             ],
         ]);  
         

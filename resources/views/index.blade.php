@@ -26,20 +26,21 @@
 					<li><a href="#">植物</a></li>
 					<li><a href="#">動物</a></a></li>
 					<li><a href="#">人工</a></li>
+					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href="like.blade.php">お気に入り</a></li>
-					<li><a href="login.blade.php">ログイン</a></li>
+					<li><a href='/posts/login'>ログイン</a></li>
 					<li><a href="signup.blede.php">会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
 </div> <!-- /project posts -->
-<p class='create'></p>[<a href='/posts/create'>投稿</a>]</p>
+
 <div class="posts">
 		<div class="col-xs-12">
 			@foreach ($posts as $post)
                 <div class='post'>
-                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->perfume_id->name }}</h2></a>
+                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->perfume_id}}</h2></a>
                     <p class='body'>{{ $post->discription }}</p>
                 </div>
             @endforeach

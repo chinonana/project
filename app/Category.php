@@ -15,7 +15,7 @@ class Category extends Model
     
     
     
-    
+    //リレーション設定
     public function posts()
     {
         // カテゴリは複数のポストを持つ

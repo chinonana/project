@@ -18,8 +18,9 @@ class CreatePostsTable extends Migration
             //body
             $table->text('discription');
             //title
-            $table->unsignedInteger('perfume_id');
-            $table->foreign('perfume_id')->references('id')->on('perfumes');
+            $table->text('perfume');
+            $table->unsignedInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreatePostsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('posts');
-        Schema::dropIfExists('perfumes');
+        Schema::dropIfExists('categories');
     }
 }

@@ -11,10 +11,10 @@ class PostRequest extends FormRequest
      *
      * @return bool
      */
-    //public function authorize()
-    //{
-    //    return false;
-    //}
+    public function authorize()
+    {
+        return true;
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -24,9 +24,25 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'post.title' => 'required|string|max:100',
-            'post.body' => 'required|string|max:4000',
+            'perfume'=>'required|max:40',
+            'discription' => 'required|string|max:4000',
+            'category_id' => 'required|integer',
         ];
     }
+    /**
+     * エラーメッセージを日本語化
+     * 
+     */
+    public function messages()
+    {
+        return [
+            'perfume.required' => '件名を入力してください',
+            'perfume.max' => '件名は80文字以内で入力してください',
+            'discription.required' => 'メッセージを入力してください',
+            'discription.max' => 'メッセージは350文字以内で入力してください',
+            'category_id.required' => 'カテゴリーを選択してください',
+            'category_id.integer' => 'カテゴリーの入力形式が不正です',
+        ];
+    }
+    
 }

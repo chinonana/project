@@ -26,6 +26,7 @@
 					<li><a href="#">植物</a></li>
 					<li><a href="#">動物</a></li>
 					<li><a href="#">人口</a></li>
+					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href="login.php">ログイン</a></li>
 					<li><a href="signup.php">会員登録</a></li>
 				</ul>
@@ -40,24 +41,23 @@
         <div class="content">
             <div class="content__post">
                 <h3>本文</h3>
-                <p>{{ $post->body }}</p>    
-                <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
+                <p>{{ $post->body }}</p>
             </div>
         </div>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
-//<div class="container">
-	//<div class="row">
-		// <div class="col-xs-12">
-		 	//<h3>口コミを投稿する</h3>
-			//<form action="" method="post">
-				//<textarea name="add_review" class="form-control" placeholder="口コミを記入してください。"></textarea>
-				//<button type="submit" class="btn btn-default">投稿する</button>
-			//</form>
-		// </div>
-	//</div>
-//</div
+<div class="container">
+	<div class="row">
+		 <div class="col-xs-12">
+		 	<h3>口コミを投稿する</h3>
+			<form action="" method="post">
+				<textarea name="add_review" class="form-control" placeholder="口コミを記入してください。"></textarea>
+				<button type="submit" class="btn btn-default">投稿する</button>
+			</form>
+		</div>
+	</div>
+</div
 <br><br><br>
 
 </body>
