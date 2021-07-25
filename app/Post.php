@@ -10,8 +10,8 @@ class Post extends Model
     protected $table = 'posts';
     // 更新可能な項目の設定
     protected $fillable = [
-    'discription',
-    'perfume',
+    'body',
+    'title',
     'category_id',
     ];
     

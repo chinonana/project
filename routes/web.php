@@ -32,5 +32,5 @@ Route::get('/posts/login', 'PostController@login');
 
 
 
-//index->postting
+//投稿用
 Route::post('/posts', 'PostController@store');
