@@ -9,7 +9,7 @@ class CategoryTableSeeder extends Seeder
      *
      * @return void
      */
-    
+    //テストデータ
     public function run()
     {
         DB::table('categories')->insert([
@@ -17,11 +17,14 @@ class CategoryTableSeeder extends Seeder
             'category'=>'花',
             ],
             [
+            'category'=>'植物',
+            ],
+            [
             'category'=>'動物',
             ],
             [
             'category'=>'人工',
             ],
-        ]);  
+        ]);
     }
 }

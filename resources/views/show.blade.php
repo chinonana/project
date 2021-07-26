@@ -17,6 +17,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">Perfumes</a>
 			</div>
@@ -27,13 +28,15 @@
 					<li><a href="#">動物</a></li>
 					<li><a href="#">人口</a></li>
 					<li><a href='/posts/create'>投稿</a></li>
-					<li><a href="login.php">ログイン</a></li>
-					<li><a href="signup.php">会員登録</a></li>
+					<li><a href='/posts/like'>お気に入り</a></li>
+					<li><a href='/posts/login'>ログイン</a></li>
+					<li><a href='/posts/signin'>会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
 </div> <!-- /container -->
+
 <body>
 	<h1 class="title">
             {{ $post->title }}
@@ -47,6 +50,34 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+        
+ //お気に入り用       
+<span>
+<img src="{{asset('img/nicebutton.png')}}" width="30px">
+ 
+<!-- もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
+@if($like)
+ 「いいね」取消用ボタンを表示 
+	<a href="{{ route('unlike', $post) }}" class="btn btn-success btn-sm">
+		いいね
+		 「いいね」の数を表示 
+		<span class="badge">
+			{{ $post->likes->count() }}
+		</span>
+	</a>
+@else
+<!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+	<a href="{{ route('like', $post) }}" class="btn btn-secondary btn-sm">
+		いいね
+		<!-- 「いいね」の数を表示 -->
+		<span class="badge">
+			{{ $post->likes->count() }}
+		</span>
+	</a>
+@endif
+</span>
+        
+        
 <div class="container">
 	<div class="row">
 		 <div class="col-xs-12">

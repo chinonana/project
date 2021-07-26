@@ -17,6 +17,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">Perfumes</a>
 			</div>
@@ -26,8 +27,10 @@
 					<li><a href="#">植物</a></li>
 					<li><a href="#">動物</a></li>
 					<li><a href="#">人工</a></li>
-					<li><a href="login.php">ログイン</a></li>
-					<li><a href="signup.php">会員登録</a></li>
+					<li><a href='/posts/create'>投稿</a></li>
+					<li><a href='/posts/like'>お気に入り</a></li>
+					<li><a href='/posts/login'>ログイン</a></li>
+					<li><a href='/posts/signin'>会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->

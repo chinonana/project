@@ -3,37 +3,65 @@
 namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
-use App\Post;
+use App\Post, App\Category, App\User, App\Like;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
+    //index表示
     public function index(Post $post)
     {
     return view('index')->with(['posts' => $post->getPaginateByLimit()]);
-    } 
+    //$post->getPaginateByLimit()＝ポストテーブルの中身
+    //'posts' =>＄ポストにポスつという名前にする
+    }
     
-    //show.blade個別の詳細ページ
+    //show.blade個別の詳細ページ移動
+//    public function show(Post $post)
+//    {
+//    return view('show')->with(['post' => $post]);
+//    }
+    
+    //show表示お気に入り付き
     public function show(Post $post)
-    {
-    return view('show')->with(['post' => $post]);
+    {  
+ 
+        $like=Like::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+        return view('show', compact('post', 'like'));
     }
     
     //create.blade記事投稿
     public function create()
     {
-        return view('create');
+    //カテゴリーの情報をカテゴリーズから持ってくる
+        
+    return view('create'); //->with(['categories'=>$category]);//一緒にcategoriesのデータも渡すwith
     }
     
+    //お気に入り
+    
+    
     //ログイン画面表示
-    public function login(Post $post)
+    public function login()
     {
-    return view('login')->with(['post' => $post]);
+    return view('login'); //->with(['' => $]);
     }
-//login
-//Route::get('/posts/login', 'PostController@create');
-//signin
-//Route::get('/posts/signin', 'PostController@create');
+    
+    
+    //会員登録画面
+    public function signin()
+    {
+    return view('signin'); //->with(['' => $]);
+    }
+    
+    
+    
+    
+    
+    
+   
+
+
     //投稿修正
     //public function edit(Post $post)
     //{
