@@ -35,16 +35,16 @@ class Post extends Model
         // 投稿は1つのカテゴリーに属する（多対1）
         return $this->belongsTo('App\Category');
     }
-    
+    //お気に入りセット
     public function user() 
     {
         //ひとつの投稿は、ひとりのユーザーに紐づく
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\User');
     }
  
     public function like() 
     {
         //ひとつの投稿は、たくさんの「いいね」を獲得する可能性がある
-        return $this->hasMany('App\Models\Like');
+        return $this->hasMany('App\Like');
     }
 }

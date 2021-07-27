@@ -48,15 +48,14 @@
                 <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
-            
-            <div class="categories">
+            <div class="category_id">
             	<h2>カテゴリー</h2>
                 <div class="col-md-6">
                 <select class="form-control" id="categories[id]" name="categories[category]">
-         <option value="1">花</option>
-         <option value="2">植物</option>
-         <option value="3">動物</option>
-         <option value="4">人工</option>
+                <option value="1">花</option>
+                <option value="3">植物</option>
+                <option value="3">動物</option>
+                <option value="4">人工</option>
                 </select>
                 </div>
             </div>

@@ -16,27 +16,35 @@ class PostController extends Controller
     //'posts' =>＄ポストにポスつという名前にする
     }
     
-    //show.blade個別の詳細ページ移動
-//    public function show(Post $post)
-//    {
-//    return view('show')->with(['post' => $post]);
-//    }
-    
-    //show表示お気に入り付き
+   // show.blade個別の詳細ページ移動
+ //   public function show(Post $post)
+   // {
+     // return view('show')->with(['post' => $post]);
+      //}
+      
+     // いいね機能つきshow表示
     public function show(Post $post)
     {  
- 
         $like=Like::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
-        return view('show', compact('post', 'like'));
+      return view('show', compact('post', 'like'));
     }
     
     //create.blade記事投稿
     public function create()
     {
     //カテゴリーの情報をカテゴリーズから持ってくる
-        
-    return view('create'); //->with(['categories'=>$category]);//一緒にcategoriesのデータも渡すwith
+    $category = \DB::table('categories')->get();
+    return view('create')->with(['categories'=>$category]);
+    //一緒にcategoriesのデータも渡すwithで
     }
+    
+    
+    
+    
+
+    
+    
+    
     
     //お気に入り
     

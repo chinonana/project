@@ -17,7 +17,7 @@ Route::get('/', 'PostController@index');
 //create 表示
 Route::get('/posts/create', 'PostController@create');
 //お気に入り
-//Route::get('/posts/like', 'PostController@like');
+Route::get('/posts/like', 'PostController@like');
 //login 表示
 Route::get('/posts/login', 'PostController@login');
 //signin 表示
@@ -40,3 +40,6 @@ Route::get('/reply/like/{post}', 'LikeController@like')->name('like');
 
 //投稿用
 Route::post('/posts', 'PostController@store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

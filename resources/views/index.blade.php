@@ -33,7 +33,7 @@
 					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href='/posts/like'>お気に入り</a></li>
 					<li><a href='/posts/login'>ログイン</a></li>
-					<li><a href='/posts/signin'>会員登録</a></li>
+				    <li><a href='/posts/signin'>会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
@@ -45,8 +45,11 @@
                 <div class='post'>
                     <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title}}</h2></a>
                     <p class='body'>{{ $post->body }}</p>
+                    <p class='category'>{{ optional($post->category_id)->category }}</p>
+               
                 </div>
             @endforeach
+            </div>
         </div>
         <div class='paginate'>
             {{ $posts->links() }}

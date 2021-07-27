@@ -27,10 +27,10 @@ class LikeController extends Controller
     }
     
     //お気に入り解除
-//    public function unlike(Post $post, Request $request){
-  //      $user=Auth::user()->id;
-    //    $like=Like::where('post_id', $post->id)->where('user_id', $user)->first();
-      //  $like->delete();
-        //return back();
-  //  }
+    public function unlike(Post $post, Request $request){
+        $user=Auth::user()->id;
+        $like=Like::where('post_id', $post->id)->where('user_id', $user)->first();
+        $like->delete();
+        return back();
+    }
 }
