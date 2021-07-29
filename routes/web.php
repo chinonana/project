@@ -12,30 +12,27 @@
 */
 
 
-//posts/index.blade
+//index.blade
 Route::get('/', 'PostController@index');
+//flower
+Route::get('/posts/flower','PostController@flower');
 //create 表示
 Route::get('/posts/create', 'PostController@create');
 //お気に入り
 Route::get('/posts/like', 'PostController@like');
-//login 表示
-Route::get('/posts/login', 'PostController@login');
-//signin 表示
-Route::get('/posts/signin', 'PostController@signin');
 
-//create保存
-//Route::post('/posts', 'PostController@store');
-//個別投稿の編集画面
-Route::get('/posts/{post}/edit', 'PostController@update');
+
+
 //個別ページに飛ぶ
 Route::get('/posts/{post}', 'PostController@show');
+Route::resource('comment', 'CommentsController@store');
 
+//個別投稿の編集画面
+Route::get('/posts/{post}/edit', 'PostController@update');
 // いいね用ボタン
 Route::get('/reply/like/{post}', 'LikeController@like')->name('like');
 //いいね取り消し用
 //Route::get('/reply/unlike/{post}', 'LikeController@unlike')->name('unlike');st}', 'HomeController@unlike')->name('unlike');
-
-
 
 
 //投稿用

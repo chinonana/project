@@ -18,49 +18,42 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Perfumes</a>
+				<a class="navbar-brand" href="/">Perfumes</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">花</a></li>
+					<li><a href="#category.blade.php">花</a></li>
 					<li><a href="#">植物</a></li>
-					<li><a href="#">動物</a></li>
+					<li><a href="#">動物</a></a></li>
 					<li><a href="#">人工</a></li>
 					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href='/posts/like'>お気に入り</a></li>
-					<li><a href='/posts/login'>ログイン</a></li>
-					<li><a href='/posts/signin'>会員登録</a></li>
+					<li><a href='/login'>ログイン</a></li>
+				    <li><a href='/register'>会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
-</div> <!-- /users -->
-<div class="users">
-	<div class="user">
-		 <div class="col-xs-6 col-xs-offset-3">
-		 	<h2>会員登録</h2>
-			<form action="" method="post">
-				<div class="form-group">
-					<label for="user_name">名前</label>
-					<input type="text" class="form-control" id="user_name" name="user_name">
-				</div>
-				<div class="form-group">
-					<label for="user_email">Email</label>
-					<input type="email" class="form-control" id="user_email" name="user_email">
-				</div>
-				<div class="form-group">
-					<label for="user_password">パスワード</label>
-					<input type="password" class="form-control" id="user_password" name="user_password">
-				</div>
-				<button type="submit" class="btn btn-default">登録する</button>
-			</form>
-		 </div>
+</div> <!-- /project posts -->
+<div class="posts">
+		<div class="col-xs-12">
+			@foreach ($posts as $post)
+                <div class='post'>
+                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title}}</h2></a>
+                    <p class='body'>{{ $post->body }}</p>
+                    <p class='category'>{{$post->category['category']}}</p>
+                </div>
+            @endforeach
+            </div>
+        </div>
+      
 	</div>
 </div>
 <br><br><br>
 
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </html>

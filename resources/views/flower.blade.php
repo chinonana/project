@@ -39,54 +39,20 @@
 		</div><!--/.container-fluid -->
 	</nav>
 </div> <!-- /project posts -->
-
-<body>
-	<h1 class="title">
-            {{ $post->title }}
-        </h1>
-        <div class="content">
-            <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $post->body }}</p>
+<div class="posts">
+		<div class="col-xs-12">
+			@foreach ($posts as $post)
+                <div class='post'>
+                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title}}</h2></a>
+                    <p class='body'>{{ $post->body }}</p>
+                </div>
+            @endforeach
             </div>
         </div>
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
-        
-//コメントテスト
-    <div class="form-group">
-     <label for="body">
-     記事にコメントする
-     </label>
- 
-        <textarea
-            id="comment"
-            class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}"
-            rows="4"
-        >{{ old('comment') }}</textarea>
-        @if ($errors->has('comment'))
-         <div class="invalid-feedback">
-         {{ $errors->first('comment') }}
-         </div>
-        @endif
-    </div>
- 
-    <div class="mt-4">
-     <input type="submit" value"=コメントする"/>
-    </div>
-</form>
- 
-@if (session('commentstatus'))
-    <div class="alert alert-success mt-4 mb-4">
-     {{ session('commentstatus') }}
-    </div>
-@endif
-
-
+      
+	</div>
+</div>
 <br><br><br>
 
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </html>

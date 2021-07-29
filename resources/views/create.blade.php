@@ -18,24 +18,30 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Perfumes</a>
+				<a class="navbar-brand" href="/">Perfumes</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">花</a></li>
+					<li><a href="#category.blade.php">花</a></li>
 					<li><a href="#">植物</a></li>
 					<li><a href="#">動物</a></a></li>
 					<li><a href="#">人工</a></li>
 					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href='/posts/like'>お気に入り</a></li>
-					<li><a href='/posts/login'>ログイン</a></li>
-					<li><a href='/posts/signin'>会員登録</a></li>
+					<li><a href='/login'>ログイン</a></li>
+				    <li><a href='/register'>会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
 </div> <!-- /project posts -->
+
+
+
 <form action="/posts" method="POST">
              @csrf
             <div class="title">
@@ -51,18 +57,13 @@
             <div class="category_id">
             	<h2>カテゴリー</h2>
                 <div class="col-md-6">
-                <select class="form-control" id="categories[id]" name="categories[category]">
-                <option value="1">花</option>
-                <option value="3">植物</option>
-                <option value="3">動物</option>
-                <option value="4">人工</option>
+                <select class="form-control" name="post[category_id]">
+                @foreach ($categories as $category)
+                <option value={{$category->id}}>{{$category->category}}</option>
+                @endforeach
                 </select>
                 </div>
             </div>
-　
-
-            
-            
             <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/">back</a>]</div>

@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $table = 'category';
+   // protected $table = 'category';
     // 更新可能な項目の設定
     protected $fillable = [
         'category',
-        'post_id',
     ];
     
     
