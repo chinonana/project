@@ -40,13 +40,13 @@ class User extends Authenticatable
     //リレーション
     public function posts() 
     {
-       // 1人ユーザーがたくさん投稿
-        return $this->hasMany('App\Models\Post');
+      // 1人ユーザーがたくさん投稿
+        return $this->hasMany('App\Post');
     }
  
-    public function nices() 
+    public function likes() 
     {
         //1人ユーザーがたくさん「いいね」をする可能性
-        return $this->hasMany('App\Models\Like');
+        return $this->hasMany('App\Like');
     }
 }

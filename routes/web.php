@@ -27,12 +27,15 @@ Route::get('/posts/create', 'PostController@create');
 //お気に入り
 Route::get('/posts/like', 'PostController@like');
 
-//いいね機能を実装する上でのルーティングを定義
-Route::get('/posts/like/{id}', 'PostController@like')->name('post.like');
-Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('post.unlike');
-
 //個別ページに飛ぶ
 Route::get('/posts/{post}', 'PostController@show');
+
+//like機能
+//いいね機能を実装する上でのルーティングを定義
+Route::get('/posts/like/{post}', 'PostController@like')->name('post.like');
+Route::get('/posts/unlike/{post}', 'PostController@unlike')->name('post.unlike');
+
+//コメント投稿機能
 Route::resource('comment', 'CommentsController@store');
 
 //個別投稿の編集画面

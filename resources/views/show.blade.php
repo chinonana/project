@@ -51,19 +51,41 @@
             </div>
         </div>
         
+
+          <!--いいね案2-->
+<span>
+<img src="{{asset('img/likebutton.png')}}" width="30px">
+ 
+ <!--もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
+@if($like)
+// 「いいね」取消用ボタンを表示 
+	<a href="{{ route('unlike', $post) }}" class="btn btn-success btn-sm">
+		//いいね
+		 //「いいね」の数を表示 
+		<span class="badge">
+			{{ $post->likes	->count() }}
+		</span>
+	</a>
+@else
+// まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 
+	<a href="{{ route('like', $post) }}" class="btn btn-secondary btn-sm">
+//		いいね
+//		 「いいね」の数を表示 
+		<span class="badge">
+			{{ $post->likes->count() }}
+		</span>
+	</a>
+@endif
+</span>
         
         
         
-        //お気に入り
-        <div>
-  @if($post->is_liked_by_auth_user())
-    <a href="{{ route('post.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
-  @else
-    <a href="{{ route('post.like', ['id' => $post->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
-  @endif
-</div>
-{{ $post->likes->count() }}
         
+        
+        
+
+
+
         
         
         

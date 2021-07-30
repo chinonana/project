@@ -46,8 +46,8 @@ class Post extends Model
     public function like() 
     {
         //ひとつの投稿は、たくさんの「いいね」を獲得する可能性がある
-        //return $this->hasMany('App\Like');
-        return $this->hasMany(Like::class, 'post_id');
+        return $this->hasMany('App\Like');
+        //return $this->hasMany(Like::class, 'post_id');
     }
     
     /**
