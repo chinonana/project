@@ -18,24 +18,27 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Perfumes</a>
+				<a class="navbar-brand" href="/">Perfumes</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">花</a></li>
-					<li><a href="#">植物</a></li>
-					<li><a href="#">動物</a></li>
-					<li><a href="#">人口</a></li>
+					<li><a href='/posts/flower'>花</a></li>
+					<li><a href='/posts/plant'>植物</a></li>
+					<li><a href='/posts/animal'>動物</a></a></li>
+					<li><a href='/posts/human'>人工</a></li>
 					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href='/posts/like'>お気に入り</a></li>
-					<li><a href='/posts/login'>ログイン</a></li>
-					<li><a href='/posts/signin'>会員登録</a></li>
+					<li><a href='/login'>ログイン</a></li>
+				    <li><a href='/register'>会員登録</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
-</div> <!-- /container -->
+</div> <!-- /project posts -->
 <body>
 	<h1 class="title">編集画面</h1>
     <div class="content">

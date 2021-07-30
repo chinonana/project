@@ -26,10 +26,10 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#category.blade.php">花</a></li>
-					<li><a href="#">植物</a></li>
-					<li><a href="#">動物</a></a></li>
-					<li><a href="#">人工</a></li>
+					<li><a href='/posts/flower'>花</a></li>
+					<li><a href='/posts/plant'>植物</a></li>
+					<li><a href='/posts/animal'>動物</a></a></li>
+					<li><a href='/posts/human'>人工</a></li>
 					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href='/posts/like'>お気に入り</a></li>
 					<li><a href='/login'>ログイン</a></li>
@@ -45,6 +45,7 @@
                 <div class='post'>
                     <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title}}</h2></a>
                     <p class='body'>{{ $post->body }}</p>
+                    <p class='category'>{{$post->category['category']}}</p>
                 </div>
             @endforeach
             </div>

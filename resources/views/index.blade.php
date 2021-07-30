@@ -29,7 +29,7 @@
 					<li><a href='/posts/flower'>花</a></li>
 					<li><a href='/posts/plant'>植物</a></li>
 					<li><a href='/posts/animal'>動物</a></a></li>
-					<li><a href='/posts/artificality'>人工</a></li>
+					<li><a href='/posts/human'>人工</a></li>
 					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href='/posts/like'>お気に入り</a></li>
 					<li><a href='/login'>ログイン</a></li>

@@ -12,17 +12,42 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
+    
     //index表示
     public function index(Post $post)
     {
-    
     $posts=Post::with('category')->get();
     return view('index')->with(['posts' => $posts]);
     //$post->getPaginateByLimit()＝ポストテーブルの中身
     //'posts' =>＄ポストにポスつという名前にする
     }
     
-     
+    //header表示
+    //flowerpage
+    public function flower(Post $post)
+    {
+    
+    $posts=Post::with('category')->get();
+    return view('flower')->with(['posts' => $posts]);
+    }
+    //plant
+    public function plant(Post $post)
+    {
+    $posts=Post::with('category')->get();
+    return view('plant')->with(['posts' => $posts]);
+    }
+    //animal
+    public function animal(Post $post)
+    {
+    $posts=Post::with('category')->get();
+    return view('animal')->with(['posts' => $posts]);
+    }
+    //human
+    public function human(Post $post)
+    {
+    $posts=Post::with('category')->get();
+    return view('human')->with(['posts' => $posts]);
+    }
     //create.blade記事投稿
     public function create(Category $category)
     {
@@ -31,11 +56,6 @@ class PostController extends Controller
     //一緒にcategoriesのデータも渡すwithで
     }
     
-    //flowerpage
-    public function flower(Post $post)
-    {
-        return view('flower')->with(['posts'->$posts]);
-    }
     
     // いいね機能つきshow表示
     public function show(Post $post)
@@ -46,7 +66,55 @@ class PostController extends Controller
     }
     
     
-    //お気に入り
+    
+    
+    
+    
+    // only()の引数内のメソッドはログイン時のみ有効
+  public function __construct()
+  {
+    $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
+  }
+  
+   /**
+  * 引数のIDに紐づくリプライにLIKEする
+  *
+  * @param $id リプライID
+  * @return \Illuminate\Http\RedirectResponse
+  */
+  public function like($id)
+  {
+    Like::create([
+      'post_id' => $id,
+      'user_id' => Auth::id(),
+    ]);
+
+    session()->flash('success', 'You Liked the Post.');
+
+    return redirect()->back();
+  }
+
+  /**
+   * 引数のIDに紐づくリプライにUNLIKEする
+   *
+   * @param $id リプライID
+   * @return \Illuminate\Http\RedirectResponse
+   */
+  public function unlike($id)
+  {
+    $like = Like::where('poat_id', $id)->where('user_id', Auth::id())->first();
+    $like->delete();
+
+    session()->flash('success', 'You Unliked the Post.');
+
+    return redirect()->back();
+  }
+  
+    
+    
+
+
+
 
 
 

@@ -26,10 +26,10 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#category.blade.php">花</a></li>
-					<li><a href="#">植物</a></li>
-					<li><a href="#">動物</a></a></li>
-					<li><a href="#">人工</a></li>
+					<li><a href='/posts/flower'>花</a></li>
+					<li><a href='/posts/plant'>植物</a></li>
+					<li><a href='/posts/animal'>動物</a></a></li>
+					<li><a href='/posts/human'>人工</a></li>
 					<li><a href='/posts/create'>投稿</a></li>
 					<li><a href='/posts/like'>お気に入り</a></li>
 					<li><a href='/login'>ログイン</a></li>
@@ -43,16 +43,38 @@
 <body>
 	<h1 class="title">
             {{ $post->title }}
-        </h1>
+    </h1>
         <div class="content">
             <div class="content__post">
                 <h3>本文</h3>
                 <p>{{ $post->body }}</p>
             </div>
         </div>
+        
+        
+        
+        
+        //お気に入り
+        <div>
+  @if($post->is_liked_by_auth_user())
+    <a href="{{ route('post.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+  @else
+    <a href="{{ route('post.like', ['id' => $post->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+  @endif
+</div>
+{{ $post->likes->count() }}
+        
+        
+        
+        
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+        
+        
+        
+        
+        
         
 //コメントテスト
     <div class="form-group">

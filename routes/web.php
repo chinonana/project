@@ -11,17 +11,25 @@
 |
 */
 
-
+//ページ表示
 //index.blade
 Route::get('/', 'PostController@index');
 //flower
 Route::get('/posts/flower','PostController@flower');
+//plant
+Route::get('/posts/plant','PostController@flower');
+//animal
+Route::get('/posts/animal','PostController@animal');
+//human
+Route::get('/posts/human','PostController@human');
 //create 表示
 Route::get('/posts/create', 'PostController@create');
 //お気に入り
 Route::get('/posts/like', 'PostController@like');
 
-
+//いいね機能を実装する上でのルーティングを定義
+Route::get('/posts/like/{id}', 'PostController@like')->name('post.like');
+Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('post.unlike');
 
 //個別ページに飛ぶ
 Route::get('/posts/{post}', 'PostController@show');
@@ -29,10 +37,9 @@ Route::resource('comment', 'CommentsController@store');
 
 //個別投稿の編集画面
 Route::get('/posts/{post}/edit', 'PostController@update');
-// いいね用ボタン
-Route::get('/reply/like/{post}', 'LikeController@like')->name('like');
-//いいね取り消し用
-//Route::get('/reply/unlike/{post}', 'LikeController@unlike')->name('unlike');st}', 'HomeController@unlike')->name('unlike');
+
+
+
 
 
 //投稿用
