@@ -26,12 +26,11 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href='/posts/flower'>花</a></li>
-					<li><a href='/posts/plant'>植物</a></li>
-					<li><a href='/posts/animal'>動物</a></a></li>
-					<li><a href='/posts/human'>人工</a></li>
+					<!--<li><a href='/posts/flower'>花</a></li>-->
+					<!--<li><a href='/posts/plant'>植物</a></li>-->
+					<!--<li><a href='/posts/animal'>動物</a></a></li>-->
+					<!--<li><a href='/posts/human'>人工</a></li>-->
 					<li><a href='/posts/create'>投稿</a></li>
-					<li><a href='/posts/like'>お気に入り</a></li>
 					<li><a href='/login'>ログイン</a></li>
 				    <li><a href='/register'>会員登録</a></li>
 				</ul>

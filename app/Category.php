@@ -12,6 +12,12 @@ class Category extends Model
         'category',
     ];
     
+    // public function getLists()
+    // {
+    //     $categories = Category::pluck('category', 'id');
+
+    //     return $categories;
+    // }
     
     
     //リレーション設定

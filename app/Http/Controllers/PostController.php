@@ -15,41 +15,87 @@ use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
     
-    //index表示
+
+    
+        //カテゴリサイト表示
+      //index表示
     public function index(Post $post)
     {
     $posts=Post::with('category')->get();
     return view('index')->with(['posts' => $posts]);
     //$post->getPaginateByLimit()＝ポストテーブルの中身
     //'posts' =>＄ポストにポスつという名前にする
-    }
+    }    
+        
+    //kennsaku
+     /*==================================
+    検索フォームのみ表示(show)
+    ==================================*/
+    // public function index(Request $request)
+    // {
+    //     //フォームを機能させるために各情報を取得し、viewに返す
+    //     $category = new Category;
+    //     $categories = $category->getLists();
+    //     $categoryId = $request->input('categoryId');
+
+    //     return view('index', [
+    //         'categories' => $categories,
+    //         'categoryId' => $categoryId
+    //     ]);
+    // }
     
-    //header表示
-    //flowerpage
-    public function flower(Post $post)
-    {
+    //  /*==================================
+    // 検索メソッド(searchproduct)
+    // ==================================*/
+    // public function search(Request $request)
+    // {
+    //     //入力される値nameの中身を定義する
+    //     $categoryId = $request->input('categoryId'); //カテゴリの値
+    //     //カテゴリが選択された場合、m_categoriesテーブルからcategory_idが一致する商品を$queryに代入
+    //     if (isset($categoryId)) {
+    //         $query->where('category_id', $categoryId);
+    //     }
+
+    //     //$queryをcategory_idの昇順に並び替えて$productsに代入
+    //     $posts = $query->orderBy('category_id', 'asc');
+
+    //     //m_categoriesテーブルからgetLists();関数でcategory_nameとidを取得する
+    //     $category = new Category;
+    //     $categories = $category->getLists();
+
+    //     return view('searchproduct', [
+    //         'posts' => $posts,
+    //         'categories' => $categories,
+    //         'categoryId' => $categoryId
+    //     ]);
+    // }
     
-    $posts=Post::with('category')->get();
-    return view('flower')->with(['posts' => $posts]);
-    }
-    //plant
-    public function plant(Post $post)
-    {
-    $posts=Post::with('category')->get();
-    return view('plant')->with(['posts' => $posts]);
-    }
-    //animal
-    public function animal(Post $post)
-    {
-    $posts=Post::with('category')->get();
-    return view('animal')->with(['posts' => $posts]);
-    }
-    //human
-    public function human(Post $post)
-    {
-    $posts=Post::with('category')->get();
-    return view('human')->with(['posts' => $posts]);
-    }
+    
+    // //header表示
+    // //flowerpage
+    // public function flower(Post $post)
+    // {
+    // $posts=Post::with('category')->get();
+    // return view('flower')->with(['posts' => $posts]);
+    // }
+    // //plant
+    // public function plant(Post $post)
+    // {
+    // $posts=Post::with('category')->get();
+    // return view('plant')->with(['posts' => $posts]);
+    // }
+    // //animal
+    // public function animal(Post $post)
+    // {
+    // $posts=Post::with('category')->get();
+    // return view('animal')->with(['posts' => $posts]);
+    // }
+    // //human
+    // public function human(Post $post)
+    // {
+    // $posts=Post::with('category')->get();
+    // return view('human')->with(['posts' => $posts]);
+    // }
     //create.blade記事投稿
     public function create(Category $category)
     {
@@ -60,33 +106,13 @@ class PostController extends Controller
     
     
     //個別ページ表示
-    // public function show(Post $post)
-    // {
-    //     $like=Like::where('post_id', $post->id)->where('user_id', Auth::id())->first();
-    //     return view('show', compact('post', 'like'));
-    // }
-    
-    
-    
     public function show(Post $post)
-{
+    {
     return view('show')->with(['post' => $post]);
-}
+    }
+    
+    
 
-    
-
-    
-    
-    
-    
-    
-    
-  
-
-
-
-    
-    
     
     //投稿保存用->create
     public function store(Post $post, PostRequest $request)
