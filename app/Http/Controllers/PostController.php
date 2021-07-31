@@ -60,11 +60,18 @@ class PostController extends Controller
     
     
     //個別ページ表示
+    // public function show(Post $post)
+    // {
+    //     $like=Like::where('post_id', $post->id)->where('user_id', Auth::id())->first();
+    //     return view('show', compact('post', 'like'));
+    // }
+    
+    
+    
     public function show(Post $post)
-    {
-        $like=Like::where('post_id', $post->id)->where('user_id', Auth::id())->first();
-        return view('show', compact('post', 'like'));
-    }
+{
+    return view('show')->with(['post' => $post]);
+}
 
     
 

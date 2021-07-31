@@ -26,27 +26,34 @@ Route::get('/posts/human','PostController@human');
 Route::get('/posts/create', 'PostController@create');
 //お気に入り
 Route::get('/posts/like', 'PostController@like');
-
 //個別ページに飛ぶ
 Route::get('/posts/{post}', 'PostController@show');
 
-//like機能
-//いいね機能を実装する上でのルーティングを定義
-Route::get('/posts/like/{post}', 'PostController@like')->name('post.like');
-Route::get('/posts/unlike/{post}', 'PostController@unlike')->name('post.unlike');
+// //like機能
+// //いいね機能を実装する上でのルーティングを定義
+// Route::get('/posts/like/{post}', 'PostController@like')->name('post.like');
+// Route::get('/posts/unlike/{post}', 'PostController@unlike')->name('post.unlike');
 
 //コメント投稿機能
 Route::resource('comment', 'CommentsController@store');
-
 //個別投稿の編集画面
-Route::get('/posts/{post}/edit', 'PostController@update');
+Route::get('/posts/{post}/edit', 'PostController@edit');
 
 
 
 
 
 //投稿用
-Route::post('/posts', 'PostController@store');
+Route::post('/posts', 'PostController@store');//
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//コメント投稿機能
+//Route::resource('comment', 'CommentsController', ['only' => ['store']]);
+
+// Route::patch('/posts/{post}', 'PostsController@update');
+// Route::delete('/posts/{post}', 'PostsController@destroy');
+// Route::post('/posts/{post}/comments', 'CommentsController@store');

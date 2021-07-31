@@ -41,71 +41,49 @@
 </div> <!-- /project posts -->
 
 <body>
-	<h1 class="title">
+
+
+<div class="container">
+<div class="row">
+		<div class="col-xs-12">
+        <h1 class="title">
             {{ $post->title }}
-    </h1>
+        </h1>
+        
         <div class="content">
             <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $post->body }}</p>
+                <p>{{ $post->body }}</p>  
+            
             </div>
-        </div>
-        
-
-          <!--いいね案2-->
-<span>
-<img src="{{asset('img/likebutton.png')}}" width="30px">
+		
+		<h3>コメント一覧</h3>
+          @foreach($post->comments as $single_comment)
+        	<p>{{ $single_comment->comment }}</p><br />
+          @endforeach
+          
+          
+   
+	<form class="mb-4" method="POST" action="{{ route('comment.store') }}">
+    @csrf
  
- <!--もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
-@if($like)
-// 「いいね」取消用ボタンを表示 
-	<a href="{{ route('unlike', $post) }}" class="btn btn-success btn-sm">
-		//いいね
-		 //「いいね」の数を表示 
-		<span class="badge">
-			{{ $post->likes	->count() }}
-		</span>
-	</a>
-@else
-// まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 
-	<a href="{{ route('like', $post) }}" class="btn btn-secondary btn-sm">
-//		いいね
-//		 「いいね」の数を表示 
-		<span class="badge">
-			{{ $post->likes->count() }}
-		</span>
-	</a>
-@endif
-</span>
+    <input
+        name="post_id"
+        type="hidden"
+        value="{{ $post->id }}"
+    >
+ 
+    <div class="form-group">
         
-        
-        
-        
-        
-        
+ 
 
-
-
-        
-        
-        
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
-        
-        
-        
-        
-        
-        
-//コメントテスト
     <div class="form-group">
      <label for="body">
-     記事にコメントする
+     口コミを投稿してください
      </label>
  
         <textarea
             id="comment"
+            name="comment"
             class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}"
             rows="4"
         >{{ old('comment') }}</textarea>
@@ -117,7 +95,9 @@
     </div>
  
     <div class="mt-4">
-     <input type="submit" value"=コメントする"/>
+     <button type="submit" class="btn btn-primary">
+     コメントする
+     </button>
     </div>
 </form>
  
@@ -126,7 +106,11 @@
      {{ session('commentstatus') }}
     </div>
 @endif
+        
 
+        <div class="footer">
+            <a href="/">戻る</a>
+        </div>
 
 <br><br><br>
 

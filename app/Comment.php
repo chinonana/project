@@ -18,7 +18,7 @@ class Comment extends Model
     protected $table = 'comments';
     // 更新可能な項目の設定
     protected $fillable = [
-        'response',
+        'comment',
         'post_id',
     ];
 }

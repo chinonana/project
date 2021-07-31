@@ -14,15 +14,15 @@ class CommentTableSeeder extends Seeder
         //
         DB::table('comments')->insert([
             [
-            'response'=>'good',
+            'comment'=>'good',
             'post_id'=>'1',
             ],
             [
-            'response'=>'bad',
+            'comment'=>'bad',
             'post_id'=>'2',
             ],
             [
-            'response'=>'great',
+            'comment'=>'great',
             'post_id'=>'3',
             ],
         ]);  

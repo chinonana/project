@@ -39,24 +39,30 @@
 		</div><!--/.container-fluid -->
 	</nav>
 </div> <!-- /project posts -->
-
-
-
-<div class="posts">
-		<div class="col-xs-12">
-			@foreach ($posts as $post)
-                <div class='post'>
-                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title}}</h2></a>
-                    <p class='body'>{{ $post->body }}</p>
-                    <p class='category'>{{$post->category['category']}}</p>
-                </div>
-            @endforeach
+<form action="/posts" method="POST">
+             @csrf
+            <div class="title">
+                <h2>香水名</h2>
+                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
-        </div>
-      
-	</div>
-</div>
-<br><br><br>
-
-</body>
+            <div class="body">
+                <h2>説明</h2>
+                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+            </div>
+            <div class="category_id">
+            	<h2>カテゴリー</h2>
+                <div class="col-md-6">
+                <select class="form-control" name="post[category_id]">
+                @foreach ($categories as $category)
+                <option value={{$category->id}}>{{$category->category}}</option>
+                @endforeach
+                </select>
+                </div>
+            </div>
+            <input type="submit" value="保存"/>
+        </form>
+        <div class="back">[<a href="/">back</a>]</div>
+    </body>
 </html>
